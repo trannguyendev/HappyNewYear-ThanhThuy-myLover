@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="new-year-banner-with-fireworks_2.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+    <title>Happy New Year</title>
+</head>
+
+<body>
+    <div class="fireworks">
+        <div class="text-zone">
+            <h1>HAPPY NEW YEAR 2025 MY WATER</h1>
+        </div>
+        <button id="trigger-btn">✨</button>
+        <audio src="bg-music.mp3" controls autoplay style="position: absolute; bottom: 0;"></audio>
+    </div>
+</body>
+<script type="module">
+    function wrapLetters() {
+        const textZone = document.querySelector('.fireworks>.text-zone h1');
+        const originalText = textZone.textContent.trim();
+        let wrappedText = '';
+
+        for (let letter of originalText) {
+            if (letter === ' ') {
+                wrappedText += ' ';
+            } else {
+                wrappedText += `<span class="letter">${letter}</span>`;
+            }
+        }
+
+        textZone.innerHTML = wrappedText;
+        const letters = textZone.querySelectorAll('.letter');
+        if (letters.length > 0) {
+            letters[letters.length - 1].addEventListener('click', () => {
+                window.location.href = 'happy_vid.mp4'; 
+            });
+        }
+    }
+    window.onload = wrapLetters;
+</script>
+<script src="script.js"></script>
+
+</html>
